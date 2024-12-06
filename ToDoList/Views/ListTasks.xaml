@@ -3,10 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:ToDoList.Views"
              xmlns:ui="http://schemas.modernwpf.com/2019"
-             xmlns:custom="clr-namespace:ToDoList.Custom"
-             xmlns:models="clr-namespace:ToDoList.Models"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <ui:SimpleStackPanel Margin="0,0,25,10">
@@ -19,47 +16,10 @@
                 </GroupBox>
                 <ListView ItemsSource="{Binding Tasks}"
                       HorizontalContentAlignment="Stretch"
+                      SelectedItem="{Binding SelectedTask}"
                       MaxHeight="420">
                     <ListView.ItemTemplate>
-                        <DataTemplate DataType="{x:Type models:ToDoTask}">
-                            <Border BorderThickness="1" 
-                                    Name="Border" 
-                                    BorderBrush="Gray" 
-                                    Margin="5" 
-                                    Padding="5"
-                                    HorizontalAlignment="Stretch">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="40" />
-                                        <ColumnDefinition Width="*" 
-                                                          MinWidth="100"/>
-                                    </Grid.ColumnDefinitions>
-                                    <!--Типа рид онли-->
-                                    <CheckBox Grid.Column="0"
-                                              IsChecked="{Binding IsCompleted}"
-                                              Focusable="False"
-                                              IsHitTestVisible="False"
-                                              VerticalAlignment="Center"
-                                              HorizontalAlignment="Left"/>
-                                    <TextBlock Grid.Column="1"
-                                               HorizontalAlignment="Left"
-                                               VerticalAlignment="Center"
-                                               Text="{Binding Title}"
-                                               FontWeight="Bold"
-                                               FontSize="14"
-                                               TextTrimming="CharacterEllipsis">
-                                        <TextBlock.MaxWidth>
-                                            <Binding Path="ActualWidth" 
-                                                     ElementName="Border">
-                                                <Binding.Converter>
-                                                    <custom:MaxConverter />
-                                                </Binding.Converter>
-                                            </Binding>
-                                        </TextBlock.MaxWidth>
-                                    </TextBlock>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
+                        <StaticResource ResourceKey="TaskTemplate" />
                     </ListView.ItemTemplate>
                 </ListView>
             </ui:SimpleStackPanel>

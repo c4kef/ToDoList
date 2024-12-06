@@ -18,6 +18,8 @@ public class TaskViewModel : INotifyPropertyChanged
             canExecute: CanAddTask
         );
     }
+
+    public int Id;
     
     private string? _title;
     public string? Title
@@ -26,7 +28,7 @@ public class TaskViewModel : INotifyPropertyChanged
         set
         {
             if (_title == value
-                || (value ?? string.Empty).Length < ToDoTask.TitleMaxLength) 
+                || (value ?? string.Empty).Length > ToDoTask.TitleMaxLength) 
                 return;
             
             _title = value ?? string.Empty;
@@ -43,7 +45,7 @@ public class TaskViewModel : INotifyPropertyChanged
         set
         {
             if (_description == value 
-                || (value ?? string.Empty).Length < ToDoTask.DescriptionMaxLength) 
+                || (value ?? string.Empty).Length > ToDoTask.DescriptionMaxLength) 
                 return;
             
             _description = value ?? string.Empty;
@@ -87,6 +89,7 @@ public class TaskViewModel : INotifyPropertyChanged
         Title = string.Empty;
         Description = string.Empty;
         IsCompleted = false;
+        Id = -1;
     }
 
     private void UpdateStateCommand() =>

@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:models="clr-namespace:ToDoList.Models"
+                    xmlns:custom="clr-namespace:ToDoList.Custom"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <DataTemplate x:Key="TaskTemplate"
+                      DataType="{x:Type models:ToDoTask}">
+                    <Border BorderThickness="1" 
+                            Name="Border" 
+                            BorderBrush="Gray" 
+                            Margin="5" 
+                            Padding="5"
+                            HorizontalAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" 
+                                                  MinWidth="100"/>
+                            </Grid.ColumnDefinitions>
+                            <!--Типа рид онли-->
+                            <CheckBox Grid.Column="0"
+                                      IsChecked="{Binding IsCompleted}"
+                                      Focusable="False"
+                                      IsHitTestVisible="False"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Left"/>
+                            <TextBlock Grid.Column="1"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding Title}"
+                                       FontWeight="Bold"
+                                       FontSize="14"
+                                       TextTrimming="CharacterEllipsis">
+                                <TextBlock.MaxWidth>
+                                    <Binding Path="ActualWidth" 
+                                             ElementName="Border">
+                                        <Binding.Converter>
+                                            <custom:MaxConverter />
+                                        </Binding.Converter>
+                                    </Binding>
+                                </TextBlock.MaxWidth>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+        </DataTemplate>
+</ResourceDictionary>
