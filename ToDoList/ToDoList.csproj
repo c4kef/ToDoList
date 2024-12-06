@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
+    </PropertyGroup>
+    <ItemGroup>
+        <Resource Include="Properties\LinkToResources.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <SubType>Designer</SubType>
+            <ContainsDesignTimeResources>True</ContainsDesignTimeResources>
+        </Resource>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0-preview3" />
+      <PackageReference Include="FontAwesome6.Fonts" Version="2.5.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+      <PackageReference Include="ModernWpfUI" Version="0.9.7-preview.2" />
+    </ItemGroup>
+</Project>
