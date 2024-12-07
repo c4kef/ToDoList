@@ -2,8 +2,10 @@
 using System.Data;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using ToDoList.Models;
 using ToDoList.Services;
 using ToDoList.ViewModels;
+using ToDoList.ViewModels.ContentControl;
 using TaskFactory = ToDoList.Services.TaskFactory;//Немного испортил имя
 
 namespace ToDoList;
@@ -30,11 +32,21 @@ public partial class App : Application
     
     private static void ConfigureServices(IServiceCollection services)
     {
+        
         services.AddSingleton<IToDoService, ToDoService>();
         services.AddSingleton<ITaskFactory, TaskFactory>();
-
-        services.AddSingleton<TaskService>();
         services.AddSingleton<MainViewModel>();
-        services.AddSingleton<MainWindow>();
+
+        // Регистрация зависимостей
+        services.AddTransient<TaskModel>();  // Регистрация TaskModel
+        services.AddTransient<ObservableTaskModel>(); // Регистрация ObservableTaskModel
+        services.AddTransient<TaskViewModel>();
+
+        // Регистрируем другие зависимости
+        services.AddTransient<TaskService>();
+        services.AddTransient<TaskCommandService>();
+        services.AddTransient<TaskViewCommands>();
+
+        services.AddTransient<MainWindow>(); 
     }
 }

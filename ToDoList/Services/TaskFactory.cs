@@ -4,19 +4,11 @@ namespace ToDoList.Services;
 
 public class TaskFactory : ITaskFactory
 {
-    public ToDoTask CreateTask(string? title, string? description, bool isCompleted)
+    public TaskModel CreateTask(TaskModel task)
     {
-        if (string.IsNullOrEmpty(title)) 
-            throw new ArgumentException("Заголовок не может быть пустым", nameof(title));
-        if (string.IsNullOrEmpty(description))
-            throw new ArgumentException("Описание не может быть пустым", nameof(description));
+        if (task.Id == -1)
+            task.Id = Guid.NewGuid().GetHashCode();
 
-        return new ToDoTask
-        {
-            Id = Guid.NewGuid().GetHashCode(),
-            Title = title,
-            Description = description,
-            IsCompleted = isCompleted
-        };
+        return task;
     }
 }

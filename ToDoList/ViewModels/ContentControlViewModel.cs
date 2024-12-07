@@ -9,7 +9,7 @@ using ToDoList.ViewModels.ContentControl;
 
 namespace ToDoList.ViewModels;
 
-public class ContentControlViewModel(TaskService taskService)
+public class ContentControlViewModel(TaskCommandService taskCommandService)
 {
-    public TaskViewModel Task { get; } = new(taskService);
+    public TaskViewModel Task { get; } = new(taskCommandService);
 }

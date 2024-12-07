@@ -6,7 +6,7 @@ namespace ToDoList.Services;
 public interface IToDoService
 {
     //Формально линковщик
-    ObservableCollection<ToDoTask> GetTasks();
-    void AddTask(ToDoTask task);
+    ObservableCollection<ObservableTaskModel> GetTasks();
+    void AddTask(TaskModel taskModel);
     void DeleteTask(int id);
 }

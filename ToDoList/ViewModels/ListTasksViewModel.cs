@@ -8,9 +8,9 @@ namespace ToDoList.ViewModels;
 
 public class ListTasksViewModel(IToDoService service) : INotifyPropertyChanged
 {
-    private ToDoTask? _selectedTask;
+    private ObservableTaskModel? _selectedTask;
 
-    public ToDoTask? SelectedTask
+    public ObservableTaskModel? SelectedTask
     {
         get => _selectedTask;
         set
@@ -23,7 +23,7 @@ public class ListTasksViewModel(IToDoService service) : INotifyPropertyChanged
         }
     }
     
-    public ObservableCollection<ToDoTask> Tasks { get; set; } = service.GetTasks();
+    public ObservableCollection<ObservableTaskModel> Tasks { get; set; } = service.GetTasks();
     
     public event PropertyChangedEventHandler? PropertyChanged;
     private void OnPropertyChanged(string propertyName) =>

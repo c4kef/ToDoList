@@ -2,99 +2,33 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using ToDoList.Models;
+using ToDoList.Models.Interface;
 using ToDoList.Services;
 
 namespace ToDoList.ViewModels.ContentControl;
 
-public class TaskViewModel : INotifyPropertyChanged
+public class TaskViewModel
 {
-    private readonly TaskService _taskService;
+    private TaskCommandService TaskCommandService { get; }
 
-    public TaskViewModel(TaskService taskService)
+    public TaskViewModel(TaskCommandService taskCommandService)
     {
-        _taskService = taskService;
-        AddCommand = new RelayCommand(
-            execute: AddTask,
-            canExecute: CanAddTask
-        );
+        TaskCommandService = taskCommandService;
+        AddCommand = TaskCommandService.CreateAddCommand();
+        CancelCommand = TaskCommandService.CreateCancelCommand();
+        UpdateCommand = TaskCommandService.CreateUpdateCommand();
+        DeleteCommand = TaskCommandService.CreateDeleteCommand();
+
+        ObservableTaskModel = TaskCommandService.TaskViewCommands.ObservableTaskModel;
+        ObservableTaskModel.Set(TaskModel.CreateEmpty(),
+            new CommandModel([AddCommand, CancelCommand, UpdateCommand, DeleteCommand]));
+
     }
 
-    public int Id;
+    public ObservableTaskModel ObservableTaskModel { get; }
     
-    private string? _title;
-    public string? Title
-    {
-        get => _title;
-        set
-        {
-            if (_title == value
-                || (value ?? string.Empty).Length > ToDoTask.TitleMaxLength) 
-                return;
-            
-            _title = value ?? string.Empty;
-            OnPropertyChanged(nameof(Title));
-            UpdateStateCommand();
-        }
-    }
-
-    private string? _description;
-
-    public string? Description
-    {
-        get => _description;
-        set
-        {
-            if (_description == value 
-                || (value ?? string.Empty).Length > ToDoTask.DescriptionMaxLength) 
-                return;
-            
-            _description = value ?? string.Empty;
-            OnPropertyChanged(nameof(Description));
-            UpdateStateCommand();
-        }
-    }
-
-    private bool _isCompleted;
-    public bool IsCompleted
-    {
-        get => _isCompleted;
-        set
-        {
-            if (_isCompleted == value) return;
-            _isCompleted = value;
-            OnPropertyChanged(nameof(IsCompleted));
-        }
-    }
-
-    public ICommand AddCommand { get; }
-    
-    public event PropertyChangedEventHandler? PropertyChanged;
-    private void OnPropertyChanged(string propertyName) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-    private void AddTask()
-    {
-        if (!CanAddTask())
-            throw new InvalidOperationException("Невозможно добавить задачу: проверьте заголовок и описание.");
-
-        _taskService.AddTask(Title ?? throw new NullReferenceException("Заголовок не может быть пустым."),
-            Description ?? throw new NullReferenceException("Описание не может быть пустым."),
-            IsCompleted);
-
-        ClearFields();
-    }
-
-    private void ClearFields()
-    {
-        Title = string.Empty;
-        Description = string.Empty;
-        IsCompleted = false;
-        Id = -1;
-    }
-
-    private void UpdateStateCommand() =>
-        (AddCommand as RelayCommand ?? throw new NullReferenceException("Ссылка для обновления была пуста"))
-        .NotifyCanExecuteChanged();
-    
-    private bool CanAddTask() => !string.IsNullOrWhiteSpace(Title) && !string.IsNullOrWhiteSpace(Description);
+    public CommandStruct AddCommand { get; set; }
+    public CommandStruct CancelCommand { get; set; }
+    public CommandStruct UpdateCommand { get; set; }
+    public CommandStruct DeleteCommand { get; set; }
 }

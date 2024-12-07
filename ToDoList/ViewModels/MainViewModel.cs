@@ -7,10 +7,10 @@ public class MainViewModel
     public ContentControlViewModel ContentControlViewModel { get; }
     public ListTasksViewModel TaskListViewModel { get; }
 
-    public MainViewModel(IToDoService service, ITaskFactory taskFactory, TaskService taskService)
+    public MainViewModel(IToDoService service, ITaskFactory taskFactory, TaskService taskService, TaskCommandService taskCommandService)
     {
         TaskListViewModel = new ListTasksViewModel(service);
-        ContentControlViewModel = new ContentControlViewModel(taskService);
+        ContentControlViewModel = new ContentControlViewModel(taskCommandService);
 
         TaskListViewModel.PropertyChanged += (sender, args) =>
         {
@@ -20,10 +20,7 @@ public class MainViewModel
                     if (TaskListViewModel.SelectedTask is null)
                         return;
 
-                    ContentControlViewModel.Task.Id = TaskListViewModel.SelectedTask.Id;
-                    ContentControlViewModel.Task.Title = TaskListViewModel.SelectedTask.Title;
-                    ContentControlViewModel.Task.Description = TaskListViewModel.SelectedTask.Description;
-                    ContentControlViewModel.Task.IsCompleted = TaskListViewModel.SelectedTask.IsCompleted;
+                    ContentControlViewModel.Task.ObservableTaskModel.Set(TaskListViewModel.SelectedTask.Get());
                     break;
             }
         };

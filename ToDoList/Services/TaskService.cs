@@ -1,10 +1,12 @@
-﻿namespace ToDoList.Services;
+﻿using ToDoList.Models;
+
+namespace ToDoList.Services;
 
 public class TaskService(IToDoService service, ITaskFactory taskFactory)
 {
-    public void AddTask(string title, string description, bool isCompleted)
+    public void AddTask(TaskModel task)
     {
-        var newTask = taskFactory.CreateTask(title, description, isCompleted);
+        var newTask = taskFactory.CreateTask(task);
         service.AddTask(newTask);
     }
 }

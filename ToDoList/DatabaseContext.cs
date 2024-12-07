@@ -9,7 +9,7 @@ public class DatabaseContext : DbContext
 {
     private const string NameDatabase = "todobase.sqlite";
     
-    public DbSet<ToDoTask> ToDoTasks {get;set; } = null!;
+    public DbSet<TaskModel> ToDoTasks {get;set; } = null!;
  
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

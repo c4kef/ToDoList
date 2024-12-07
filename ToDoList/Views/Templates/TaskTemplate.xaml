@@ -3,7 +3,7 @@
                     xmlns:custom="clr-namespace:ToDoList.Custom"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <DataTemplate x:Key="TaskTemplate"
-                      DataType="{x:Type models:ToDoTask}">
+                      DataType="{x:Type models:ObservableTaskModel}">
                     <Border BorderThickness="1" 
                             Name="Border" 
                             BorderBrush="Gray" 
