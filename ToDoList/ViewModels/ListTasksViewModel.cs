@@ -1,13 +1,26 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Input;
 using ToDoList.Models;
+using ToDoList.Models.Interface;
 using ToDoList.Services;
 
 namespace ToDoList.ViewModels;
 
-public class ListTasksViewModel(IToDoService service) : INotifyPropertyChanged
+public class ListTasksViewModel : INotifyPropertyChanged
 {
+    public ListTasksViewModel(IToDoService service, TaskCommandService taskCommandService)
+    {
+        Tasks = service.GetTasks();
+        CancelCommand = taskCommandService.CreateCancelCommand(CancelTask);
+
+        ObservableTaskModel = taskCommandService.TaskViewCommands.ObservableTaskModel;
+        ObservableTaskModel.Set(TaskModel.CreateEmpty(), [CancelCommand]);
+    }
+
+    public ObservableCollection<ObservableTaskModel> Tasks { get; set; }
+    public ObservableTaskModel ObservableTaskModel { get; }
+    public CommandStruct CancelCommand { get; set; }
+    
     private ObservableTaskModel? _selectedTask;
 
     public ObservableTaskModel? SelectedTask
@@ -22,8 +35,8 @@ public class ListTasksViewModel(IToDoService service) : INotifyPropertyChanged
             OnPropertyChanged(nameof(SelectedTask));
         }
     }
-    
-    public ObservableCollection<ObservableTaskModel> Tasks { get; set; } = service.GetTasks();
+
+    private void CancelTask() => SelectedTask = null;
     
     public event PropertyChangedEventHandler? PropertyChanged;
     private void OnPropertyChanged(string propertyName) =>

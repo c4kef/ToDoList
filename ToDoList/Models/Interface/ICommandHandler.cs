@@ -10,7 +10,7 @@ public readonly record struct CommandStruct(string Name, ICommand Command)
 
 public interface ICommandHandler
 {
-    CommandStruct[] Commands { get; }
+    List<CommandStruct> Commands { get; }
     void UpdateStateCommands();
     void UpdateStateCommand(string name);
     CommandStruct GetCommand(string name);

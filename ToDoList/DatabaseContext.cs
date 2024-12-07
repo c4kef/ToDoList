@@ -8,9 +8,11 @@ namespace ToDoList;
 public class DatabaseContext : DbContext
 {
     private const string NameDatabase = "todobase.sqlite";
+
+    public const int VersionDatabase = 1;
     
-    public DbSet<TaskModel> ToDoTasks {get;set; } = null!;
- 
+    public DbSet<TaskModel> ToDoTasks { get; set; } = null!;
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!File.Exists(NameDatabase))

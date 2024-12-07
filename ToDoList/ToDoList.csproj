@@ -18,10 +18,15 @@
     <ItemGroup>
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0-preview3" />
       <PackageReference Include="FontAwesome6.Fonts" Version="2.5.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
       <PackageReference Include="ModernWpfUI" Version="0.9.7-preview.2" />
     </ItemGroup>
     <ItemGroup>
+      <Folder Include="Migrations\" />
       <Folder Include="ViewModels\ListTasks\" />
     </ItemGroup>
 </Project>

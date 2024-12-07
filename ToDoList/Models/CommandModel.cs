@@ -3,9 +3,9 @@ using ToDoList.Models.Interface;
 
 namespace ToDoList.Models;
 
-public class CommandModel(CommandStruct[] commands) : ICommandHandler
+public class CommandModel : ICommandHandler
 {
-    public CommandStruct[] Commands { get; } = commands;
+    public List<CommandStruct> Commands { get; } = [];
 
     public void UpdateStateCommands()
     {

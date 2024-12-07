@@ -9,37 +9,32 @@ public class TaskViewCommands(TaskService taskService, ObservableTaskModel obser
 
     public void AddTask()
     {
-        // Используем значение из ObservableTaskModel
         if (ObservableTaskModel.IsFilledTitleAndDescription)
-        {
-            taskService.AddTask(ObservableTaskModel.Get());  // Передаем модель в сервис для добавления задачи
-        }
+            taskService.AddTask(ObservableTaskModel.Get());
+
+        ObservableTaskModel.Set(TaskModel.CreateEmpty());
     }
 
     public void CancelTask()
     {
-        // Логика отмены задачи
-        if (ObservableTaskModel is { IsExistTask: true, IsFilledTitleAndDescription: true })
-        {
-            //_taskService.CancelTask(_observableTaskModel);  // Отмена задачи
-        }
+        if (ObservableTaskModel is not { IsExistTask: true, IsFilledTitleAndDescription: true }) return;
+
+        ObservableTaskModel.Set(TaskModel.CreateEmpty());
     }
 
     public void UpdateTask()
     {
-        // Логика обновления задачи
-        if (ObservableTaskModel is { IsExistTask: true, IsFilledTitleAndDescription: true })
-        {
-            //_taskService.UpdateTask(_observableTaskModel);  // Обновление задачи
-        }
+        if (ObservableTaskModel is not { IsExistTask: true, IsFilledTitleAndDescription: true }) return;
+        
+        taskService.UpdateTask(ObservableTaskModel.Get());
+        ObservableTaskModel.Set(TaskModel.CreateEmpty());
     }
 
     public void DeleteTask()
     {
-        // Логика удаления задачи
-        if (ObservableTaskModel is { IsExistTask: true, IsFilledTitleAndDescription: true })
-        {
-            //_taskService.DeleteTask(_observableTaskModel);  // Удаление задачи
-        }
+        if (ObservableTaskModel is not { IsExistTask: true, IsFilledTitleAndDescription: true }) return;
+
+        taskService.DeleteTask(ObservableTaskModel.Get());
+        ObservableTaskModel.Set(TaskModel.CreateEmpty());
     }
 }

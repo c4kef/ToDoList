@@ -39,6 +39,7 @@
                              Orientation="Horizontal"
                              Spacing="10">
             <Button Command="{Binding Task.AddCommand.Command}" 
+                    Visibility="{Binding Task.ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Invert}"
                     Content="Создать" />
             <Button Command="{Binding Task.DeleteCommand.Command}"
                     Visibility="{Binding Task.ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}}"
@@ -46,9 +47,6 @@
             <Button Command="{Binding Task.UpdateCommand.Command}" 
                     Visibility="{Binding Task.ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}}"
                     Content="Обновить" />
-            <Button Command="{Binding Task.CancelCommand.Command}" 
-                    Visibility="{Binding Task.ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}}"
-                    Content="Отменить выбор" />
         </ui:SimpleStackPanel>
     </Grid>
 </UserControl>

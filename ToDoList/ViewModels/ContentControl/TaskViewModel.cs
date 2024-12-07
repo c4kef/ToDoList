@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows.Input;
-using CommunityToolkit.Mvvm.Input;
-using ToDoList.Models;
+﻿using ToDoList.Models;
 using ToDoList.Models.Interface;
 using ToDoList.Services;
 
@@ -15,20 +12,18 @@ public class TaskViewModel
     {
         TaskCommandService = taskCommandService;
         AddCommand = TaskCommandService.CreateAddCommand();
-        CancelCommand = TaskCommandService.CreateCancelCommand();
         UpdateCommand = TaskCommandService.CreateUpdateCommand();
         DeleteCommand = TaskCommandService.CreateDeleteCommand();
 
         ObservableTaskModel = TaskCommandService.TaskViewCommands.ObservableTaskModel;
-        ObservableTaskModel.Set(TaskModel.CreateEmpty(),
-            new CommandModel([AddCommand, CancelCommand, UpdateCommand, DeleteCommand]));
-
+        ObservableTaskModel.Set(TaskModel.CreateEmpty(), [
+            AddCommand, UpdateCommand, DeleteCommand
+        ]);
     }
 
     public ObservableTaskModel ObservableTaskModel { get; }
     
     public CommandStruct AddCommand { get; set; }
-    public CommandStruct CancelCommand { get; set; }
     public CommandStruct UpdateCommand { get; set; }
     public CommandStruct DeleteCommand { get; set; }
 }

@@ -7,12 +7,13 @@ public class MainViewModel
     public ContentControlViewModel ContentControlViewModel { get; }
     public ListTasksViewModel TaskListViewModel { get; }
 
-    public MainViewModel(IToDoService service, ITaskFactory taskFactory, TaskService taskService, TaskCommandService taskCommandService)
+    public MainViewModel(IToDoService service, TaskCommandService taskCommandService)
     {
-        TaskListViewModel = new ListTasksViewModel(service);
+        TaskListViewModel = new ListTasksViewModel(service, taskCommandService);
         ContentControlViewModel = new ContentControlViewModel(taskCommandService);
+        
 
-        TaskListViewModel.PropertyChanged += (sender, args) =>
+        TaskListViewModel.PropertyChanged += (_, args) =>
         {
             switch (args.PropertyName)
             {

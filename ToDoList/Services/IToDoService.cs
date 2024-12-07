@@ -7,6 +7,8 @@ public interface IToDoService
 {
     //Формально линковщик
     ObservableCollection<ObservableTaskModel> GetTasks();
+    void UpdateTasks();
     void AddTask(TaskModel taskModel);
-    void DeleteTask(int id);
+    void DeleteTask(TaskModel taskModel);
+    void UpdateTask(TaskModel taskModel);
 }

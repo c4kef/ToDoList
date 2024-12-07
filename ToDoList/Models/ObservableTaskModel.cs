@@ -1,11 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ToDoList.Models.Interface;
 
 namespace ToDoList.Models;
 
 public class ObservableTaskModel(TaskModel taskModel) : ObservableObject
 {
-    private CommandModel? _commandsHelper;
-    
+    private readonly CommandModel _commandsHelper = new();
+
     public int Id
     {
         get => taskModel.Id;
@@ -53,14 +54,15 @@ public class ObservableTaskModel(TaskModel taskModel) : ObservableObject
 
     public TaskModel Get() => taskModel;
 
-    public void Set(TaskModel model, CommandModel? commandsHelper = null)
+    public void Set(TaskModel model, CommandStruct[]? commandsHelper = null)
     {
         Id = model.Id;
         Title = model.Title;
         Description = model.Description;
+        taskModel.Date = model.Date;
         IsCompleted = model.IsCompleted;
-        
+
         if (commandsHelper is not null)
-            _commandsHelper = commandsHelper;
+            _commandsHelper.Commands.AddRange(commandsHelper);
     }
 }
