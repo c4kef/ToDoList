@@ -12,9 +12,11 @@ public class ListTasksViewModel : INotifyPropertyChanged
     {
         Tasks = service.GetTasks();
         CancelCommand = taskCommandService.CreateCancelCommand(CancelTask);
-
+        
         ObservableTaskModel = taskCommandService.TaskViewCommands.ObservableTaskModel;
         ObservableTaskModel.Set(TaskModel.CreateEmpty(), [CancelCommand]);
+        
+        service.UpdateTasks();
     }
 
     public ObservableCollection<ObservableTaskModel> Tasks { get; set; }

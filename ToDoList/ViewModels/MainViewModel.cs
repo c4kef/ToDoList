@@ -12,7 +12,6 @@ public class MainViewModel
         TaskListViewModel = new ListTasksViewModel(service, taskCommandService);
         ContentControlViewModel = new ContentControlViewModel(taskCommandService);
         
-
         TaskListViewModel.PropertyChanged += (_, args) =>
         {
             switch (args.PropertyName)

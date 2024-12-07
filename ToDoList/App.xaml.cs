@@ -7,7 +7,6 @@ using ToDoList.Models;
 using ToDoList.Services;
 using ToDoList.ViewModels;
 using ToDoList.ViewModels.ContentControl;
-using TaskFactory = ToDoList.Services.TaskFactory;//Немного испортил имя
 
 namespace ToDoList;
 
@@ -59,7 +58,6 @@ public partial class App : Application
     private static void ConfigureServices(IServiceCollection services)
     {
         services.AddSingleton<IToDoService, ToDoService>();
-        services.AddSingleton<ITaskFactory, TaskFactory>();
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<DatabaseContext>();
         

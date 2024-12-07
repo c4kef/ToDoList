@@ -2,12 +2,13 @@
 
 namespace ToDoList.Services;
 
-public class TaskService(IToDoService service, ITaskFactory taskFactory)
+public class TaskService(IToDoService service)
 {
     public void AddTask(TaskModel task)
     {
-        var newTask = taskFactory.CreateTask(task);
-        service.AddTask(newTask);
+        task.Id = Guid.NewGuid().GetHashCode();//Сюда поступают только таски которые мы создаем
+        
+        service.AddTask(task);
         service.UpdateTasks();
     }
 

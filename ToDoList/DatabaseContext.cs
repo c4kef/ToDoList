@@ -25,4 +25,12 @@ public class DatabaseContext : DbContext
 
         optionsBuilder.UseSqlite("Data Source=todobase.sqlite");
     }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<TaskModel>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+        });
+    }
 }
