@@ -63,7 +63,6 @@ public partial class App : Application
         
         services.AddTransient<TaskModel>();
         services.AddTransient<ObservableTaskModel>();
-        services.AddTransient<TaskViewModel>();
 
         services.AddTransient<TaskService>();
         services.AddTransient<TaskCommandService>();

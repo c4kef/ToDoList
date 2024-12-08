@@ -20,7 +20,7 @@ public class MainViewModel
                     if (TaskListViewModel.SelectedTask is null)
                         return;
 
-                    ContentControlViewModel.Task.ObservableTaskModel.Set(TaskListViewModel.SelectedTask.Get());
+                    ContentControlViewModel.ObservableTaskModel.Set(TaskListViewModel.SelectedTask.Get());
                     break;
             }
         };

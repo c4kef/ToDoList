@@ -22,30 +22,30 @@
             <TextBox Grid.Column="0"
                      Height="20"
                      ui:ControlHelper.PlaceholderText="Имя таска"
-                     Text="{Binding Task.ObservableTaskModel.Title}"/>
+                     Text="{Binding ObservableTaskModel.Title}"/>
             <ui:ToggleSwitch Grid.Column="1"
                              Margin="10,0,0,0"
-                             IsOn="{Binding Task.ObservableTaskModel.IsCompleted}"
+                             IsOn="{Binding ObservableTaskModel.IsCompleted}"
                              OffContent="Делаю"
                              OnContent="Сделано"/>
         </Grid>
         <TextBox Grid.Row="1"
                  TextWrapping="Wrap"
-                 Text="{Binding Task.ObservableTaskModel.Description}"
+                 Text="{Binding ObservableTaskModel.Description}"
                  AcceptsReturn="True"
                  Margin="0,0,0,10"/>
         <ui:SimpleStackPanel Grid.Row="2"
                              HorizontalAlignment="Center"
                              Orientation="Horizontal"
                              Spacing="10">
-            <Button Command="{Binding Task.AddCommand.Command}" 
-                    Visibility="{Binding Task.ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Invert}"
+            <Button Command="{Binding AddCommand.Command}" 
+                    Visibility="{Binding ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Invert}"
                     Content="Создать" />
-            <Button Command="{Binding Task.DeleteCommand.Command}"
-                    Visibility="{Binding Task.ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}}"
+            <Button Command="{Binding DeleteCommand.Command}"
+                    Visibility="{Binding ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}}"
                     Content="Удалить" />
-            <Button Command="{Binding Task.UpdateCommand.Command}" 
-                    Visibility="{Binding Task.ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}}"
+            <Button Command="{Binding UpdateCommand.Command}" 
+                    Visibility="{Binding ObservableTaskModel.IsExistTask, Converter={StaticResource BooleanToVisibilityConverter}}"
                     Content="Обновить" />
         </ui:SimpleStackPanel>
     </Grid>
