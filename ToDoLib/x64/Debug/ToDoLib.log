@@ -1,2 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр сборки добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+  LINK : не найден или не выполнена сборка ..\ToDoList\bin\x64\Debug\net9.0-windows\ToDoLib.dll при последней инкрементной компоновке; выполняется полная компоновка
+     Создается библиотека ..\ToDoList\bin\x64\Debug\net9.0-windows\ToDoLib.lib и объект ..\ToDoList\bin\x64\Debug\net9.0-windows\ToDoLib.exp
   ToDoLib.vcxproj -> C:\Users\artem\source\repos\ToDoList\ToDoList\bin\x64\Debug\net9.0-windows\ToDoLib.dll
