@@ -7,6 +7,7 @@ using ToDoList.Models;
 using ToDoList.Services;
 using ToDoList.ViewModels;
 using ToDoList.ViewModels.ContentControl;
+using ToDoList.ViewModels.ListTasks.FilterAndSort;
 
 namespace ToDoList;
 
@@ -58,6 +59,7 @@ public partial class App : Application
     private static void ConfigureServices(IServiceCollection services)
     {
         services.AddSingleton<IToDoService, ToDoService>();
+        services.AddSingleton<ITaskFilter, TaskFilter>();
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<DatabaseContext>();
         

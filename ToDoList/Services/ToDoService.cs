@@ -11,14 +11,24 @@ public class ToDoService(DatabaseContext context) : IToDoService
     private readonly ObservableCollection<ObservableTaskModel> _tasks = [];
 
     public ObservableCollection<ObservableTaskModel> GetTasks() => _tasks;
+    
+    private Func<IQueryable<TaskModel>, IQueryable<TaskModel>>? _currentSortExpression;
 
-    public void UpdateTasks()
+    public void UpdateListTasks(Func<IQueryable<TaskModel>, IQueryable<TaskModel>>? sortExpression = null)
     {
         _tasks.Clear();
-        foreach (var observableTaskModel in context.ToDoTasks.AsNoTracking().ToList()
+        _currentSortExpression = sortExpression;
+        
+        var query = context.ToDoTasks.AsNoTracking();
+        if (sortExpression != null)
+            query = sortExpression(query);
+
+        foreach (var observableTaskModel in query.ToList()
                      .Select(task => new ObservableTaskModel(task)))
             _tasks.Add(observableTaskModel);
     }
+
+    public void UpdateListTasksWithLastFilter() => UpdateListTasks(_currentSortExpression);
 
     public void AddTask(TaskModel taskModel)
     {

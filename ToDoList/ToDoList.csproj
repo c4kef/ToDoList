@@ -7,7 +7,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
         <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
+        <ApplicationIcon>icon.ico</ApplicationIcon>
+        <PlatformTarget>x64</PlatformTarget>
+        <Platforms>x64</Platforms>
+        <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="icon.ico" />
+    </ItemGroup>
     <ItemGroup>
         <Resource Include="Properties\LinkToResources.xaml">
             <Generator>MSBuild:Compile</Generator>
@@ -27,6 +35,8 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Migrations\" />
-      <Folder Include="ViewModels\ListTasks\" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoLib\ToDoLib.vcxproj" />
     </ItemGroup>
 </Project>

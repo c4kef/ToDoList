@@ -1,16 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "ToDoList\ToDoList.csproj", "{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToDoLib", "ToDoLib\ToDoLib.vcxproj", "{35155AD6-4E94-4CD6-A049-0A8C1479758D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}.Debug|x64.ActiveCfg = Debug|x64
+		{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}.Debug|x64.Build.0 = Debug|x64
+		{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}.Release|x64.ActiveCfg = Release|x64
+		{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}.Release|x64.Build.0 = Release|x64
+		{35155AD6-4E94-4CD6-A049-0A8C1479758D}.Debug|x64.ActiveCfg = Debug|x64
+		{35155AD6-4E94-4CD6-A049-0A8C1479758D}.Debug|x64.Build.0 = Debug|x64
+		{35155AD6-4E94-4CD6-A049-0A8C1479758D}.Release|x64.ActiveCfg = Release|x64
+		{35155AD6-4E94-4CD6-A049-0A8C1479758D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

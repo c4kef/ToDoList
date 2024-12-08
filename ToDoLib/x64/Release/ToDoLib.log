@@ -1,0 +1,8 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр сборки добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+  dllmain.cpp
+     Создается библиотека ..\ToDoList\bin\x64\Release\net9.0-windows\ToDoLib.lib и объект ..\ToDoList\bin\x64\Release\net9.0-windows\ToDoLib.exp
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 1 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  ToDoLib.vcxproj -> C:\Users\artem\source\repos\ToDoList\ToDoList\bin\x64\Release\net9.0-windows\ToDoLib.dll

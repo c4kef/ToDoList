@@ -3,44 +3,30 @@ using System.ComponentModel;
 using ToDoList.Models;
 using ToDoList.Models.Interface;
 using ToDoList.Services;
+using ToDoList.ViewModels.ListTasks;
+using ToDoList.ViewModels.ListTasks.FilterAndSort;
 
 namespace ToDoList.ViewModels;
 
-public class ListTasksViewModel : INotifyPropertyChanged
+public class ListTasksViewModel
 {
-    public ListTasksViewModel(IToDoService service, TaskCommandService taskCommandService)
+    public ListTasksViewModel(IToDoService service, ITaskFilter taskFilter, TaskCommandService taskCommandService)
     {
-        Tasks = service.GetTasks();
-        CancelCommand = taskCommandService.CreateCancelCommand(CancelTask);
-        
+        TaskSortFinder = new TaskSortFinder(service);
+
+        CancelCommand = taskCommandService.CreateCancelCommand(TaskSortFinder.CancelTask);
+
         ObservableTaskModel = taskCommandService.TaskViewCommands.ObservableTaskModel;
         ObservableTaskModel.Set(TaskModel.CreateEmpty(), [CancelCommand]);
         
-        service.UpdateTasks();
+        var handler = new SortAndFindHandler(service, taskFilter);
+        TaskSortFinder.PropertyChanged += (_, args) => handler.HandlePropertyChanged(TaskSortFinder, args.PropertyName);
+        
+        service.GetTasks();
+        TaskSortFinder.SelectedTypeSort = TaskSortFinder.SelectedSorts[0];
     }
 
-    public ObservableCollection<ObservableTaskModel> Tasks { get; set; }
+    public TaskSortFinder TaskSortFinder { get; }
     public ObservableTaskModel ObservableTaskModel { get; }
     public CommandStruct CancelCommand { get; set; }
-    
-    private ObservableTaskModel? _selectedTask;
-
-    public ObservableTaskModel? SelectedTask
-    {
-        get => _selectedTask;
-        set
-        {
-            if (_selectedTask != null && _selectedTask == value)
-                return;
-            
-            _selectedTask = value;
-            OnPropertyChanged(nameof(SelectedTask));
-        }
-    }
-
-    private void CancelTask() => SelectedTask = null;
-    
-    public event PropertyChangedEventHandler? PropertyChanged;
-    private void OnPropertyChanged(string propertyName) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }

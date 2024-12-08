@@ -6,17 +6,25 @@
              xmlns:ui="http://schemas.modernwpf.com/2019"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-            <ui:SimpleStackPanel Margin="0,0,25,10">
-                <GroupBox Header="Таски">
-                    <DockPanel Height="26">
-                        <ComboBox Width="90"
-                                  VerticalContentAlignment="Center"
-                                  SelectedIndex="0"/>
-                    </DockPanel>
-                </GroupBox>
-                <ListView ItemsSource="{Binding Tasks}"
+            <ui:SimpleStackPanel Margin="0,4,25,10">
+                <ui:SimpleStackPanel Orientation="Horizontal"
+                                     Margin="0,0,0,10"
+                                     Spacing="10">
+                    <ComboBox ui:ControlHelper.PlaceholderText="Сортировка"
+                              Width="120"
+                              ItemsSource="{Binding TaskSortFinder.SelectedSorts}"
+                              DisplayMemberPath="DisplayName"
+                              SelectedValuePath="Type"
+                              SelectedItem="{Binding TaskSortFinder.SelectedTypeSort}"
+                              VerticalContentAlignment="Center"/>
+                    <TextBox ui:ControlHelper.PlaceholderText="Поиск по заголовку"
+                             Text="{Binding TaskSortFinder.FindByNameTitle}"
+                             Height="20"
+                             Width="180"/>
+                </ui:SimpleStackPanel>
+                <ListView ItemsSource="{Binding TaskSortFinder.Tasks}"
                       HorizontalContentAlignment="Stretch"
-                      SelectedItem="{Binding SelectedTask}"
+                      SelectedItem="{Binding TaskSortFinder.SelectedTask}"
                       MaxHeight="420">
                     <ListView.ItemTemplate>
                         <StaticResource ResourceKey="TaskTemplate" />

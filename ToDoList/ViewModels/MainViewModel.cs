@@ -1,4 +1,5 @@
 ﻿using ToDoList.Services;
+using ToDoList.ViewModels.ListTasks.FilterAndSort;
 
 namespace ToDoList.ViewModels;
 
@@ -7,20 +8,20 @@ public class MainViewModel
     public ContentControlViewModel ContentControlViewModel { get; }
     public ListTasksViewModel TaskListViewModel { get; }
 
-    public MainViewModel(IToDoService service, TaskCommandService taskCommandService)
+    public MainViewModel(IToDoService service, ITaskFilter filter, TaskCommandService taskCommandService)
     {
-        TaskListViewModel = new ListTasksViewModel(service, taskCommandService);
+        TaskListViewModel = new ListTasksViewModel(service, filter, taskCommandService);
         ContentControlViewModel = new ContentControlViewModel(taskCommandService);
         
-        TaskListViewModel.PropertyChanged += (_, args) =>
+        TaskListViewModel.TaskSortFinder.PropertyChanged += (_, args) =>
         {
             switch (args.PropertyName)
             {
-                case nameof(ListTasksViewModel.SelectedTask):
-                    if (TaskListViewModel.SelectedTask is null)
+                case nameof(ListTasksViewModel.TaskSortFinder.SelectedTask):
+                    if (TaskListViewModel.TaskSortFinder.SelectedTask is null)
                         return;
 
-                    ContentControlViewModel.ObservableTaskModel.Set(TaskListViewModel.SelectedTask.Get());
+                    ContentControlViewModel.ObservableTaskModel.Set(TaskListViewModel.TaskSortFinder.SelectedTask.Get());
                     break;
             }
         };

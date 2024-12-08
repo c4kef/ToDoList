@@ -9,18 +9,18 @@ public class TaskService(IToDoService service)
         task.Id = Guid.NewGuid().GetHashCode();//Сюда поступают только таски которые мы создаем
         
         service.AddTask(task);
-        service.UpdateTasks();
+        service.UpdateListTasksWithLastFilter();
     }
 
     public void UpdateTask(TaskModel task)
     {
         service.UpdateTask(task);
-        service.UpdateTasks();
+        service.UpdateListTasksWithLastFilter();
     }
 
     public void DeleteTask(TaskModel task)
     {
         service.DeleteTask(task);
-        service.UpdateTasks();
+        service.UpdateListTasksWithLastFilter();
     }
 }

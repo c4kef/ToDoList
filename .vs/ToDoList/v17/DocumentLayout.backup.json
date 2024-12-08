@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\artem\\source\\repos\\ToDoList\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|c:\\users\\artem\\source\\repos\\todolist\\todolist\\services\\taskcommandservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|solutionrelative:todolist\\services\\taskcommandservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|c:\\users\\artem\\source\\repos\\todolist\\todolist\\todolist.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|solutionrelative:todolist\\todolist.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|c:\\users\\artem\\source\\repos\\todolist\\todolist\\viewmodels\\contentcontrolviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|solutionrelative:todolist\\viewmodels\\contentcontrolviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|c:\\users\\artem\\source\\repos\\todolist\\todolist\\views\\listtasks.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|solutionrelative:todolist\\views\\listtasks.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|c:\\users\\artem\\source\\repos\\todolist\\todolist\\custom\\native.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D91CFA-DC2E-447D-B0AB-B352D1B9B701}|ToDoList\\ToDoList.csproj|solutionrelative:todolist\\custom\\native.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35155AD6-4E94-4CD6-A049-0A8C1479758D}|ToDoLib\\ToDoLib.vcxproj|C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoLib\\dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{35155AD6-4E94-4CD6-A049-0A8C1479758D}|ToDoLib\\ToDoLib.vcxproj|solutionrelative:ToDoLib\\dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ToDoList",
+              "DocumentMoniker": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\ToDoList.csproj",
+              "RelativeDocumentMoniker": "ToDoList\\ToDoList.csproj",
+              "ToolTip": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\ToDoList.csproj",
+              "RelativeToolTip": "ToDoList\\ToDoList.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-08T16:05:29.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TaskCommandService.cs",
+              "DocumentMoniker": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\Services\\TaskCommandService.cs",
+              "RelativeDocumentMoniker": "ToDoList\\Services\\TaskCommandService.cs",
+              "ToolTip": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\Services\\TaskCommandService.cs",
+              "RelativeToolTip": "ToDoList\\Services\\TaskCommandService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvw8AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T16:02:58.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ContentControlViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\ViewModels\\ContentControlViewModel.cs",
+              "RelativeDocumentMoniker": "ToDoList\\ViewModels\\ContentControlViewModel.cs",
+              "ToolTip": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\ViewModels\\ContentControlViewModel.cs",
+              "RelativeToolTip": "ToDoList\\ViewModels\\ContentControlViewModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T16:02:51.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ListTasks.xaml",
+              "DocumentMoniker": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\Views\\ListTasks.xaml",
+              "RelativeDocumentMoniker": "ToDoList\\Views\\ListTasks.xaml",
+              "ToolTip": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\Views\\ListTasks.xaml",
+              "RelativeToolTip": "ToDoList\\Views\\ListTasks.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-08T16:02:39.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Native.cs",
+              "DocumentMoniker": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\Custom\\Native.cs",
+              "RelativeDocumentMoniker": "ToDoList\\Custom\\Native.cs",
+              "ToolTip": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoList\\Custom\\Native.cs",
+              "RelativeToolTip": "ToDoList\\Custom\\Native.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T16:01:25.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "dllmain.cpp",
+              "DocumentMoniker": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoLib\\dllmain.cpp",
+              "RelativeDocumentMoniker": "ToDoLib\\dllmain.cpp",
+              "ToolTip": "C:\\Users\\artem\\source\\repos\\ToDoList\\ToDoLib\\dllmain.cpp",
+              "RelativeToolTip": "ToDoLib\\dllmain.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-08T15:56:35.233Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

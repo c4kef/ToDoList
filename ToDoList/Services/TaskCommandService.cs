@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using ToDoList.Custom;
 using ToDoList.Models.Interface;
 using ToDoList.ViewModels.ContentControl;
 
@@ -15,6 +16,7 @@ public class TaskCommandService(TaskViewCommands taskViewCommands)
                 {
                     TaskViewCommands.AddTask();
                     action?.Invoke();
+                    Native.MyMessageBox("Задача добавлена", "Уведомление");
                 }, 
                 () => TaskViewCommands.ObservableTaskModel.IsFilledTitleAndDescription));
     }
@@ -37,6 +39,7 @@ public class TaskCommandService(TaskViewCommands taskViewCommands)
                 {
                     TaskViewCommands.UpdateTask();
                     action?.Invoke();
+                    Native.MyMessageBox("Вы обновили детали задачи", "Уведомление");
                 },
                 () => TaskViewCommands.ObservableTaskModel is { IsExistTask: true, IsFilledTitleAndDescription: true }));
     }
@@ -48,6 +51,7 @@ public class TaskCommandService(TaskViewCommands taskViewCommands)
                 {
                     TaskViewCommands.DeleteTask();
                     action?.Invoke();
+                    Native.MyMessageBox("Вы удалили задачу", "Уведомление");
                 },
                 () => TaskViewCommands.ObservableTaskModel is { IsExistTask: true, IsFilledTitleAndDescription: true }));
     }

@@ -7,7 +7,8 @@ public interface IToDoService
 {
     //Формально линковщик
     ObservableCollection<ObservableTaskModel> GetTasks();
-    void UpdateTasks();
+    void UpdateListTasks(Func<IQueryable<TaskModel>, IQueryable<TaskModel>>? sortExpression = null);
+    void UpdateListTasksWithLastFilter();
     void AddTask(TaskModel taskModel);
     void DeleteTask(TaskModel taskModel);
     void UpdateTask(TaskModel taskModel);
